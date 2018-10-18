@@ -4,4 +4,3 @@ from django.http import HttpResponse
 
 def home(request):
 	return HttpResponse("""<h1>Info3DBlog</h1><p>This is a text to test</p>""")
-

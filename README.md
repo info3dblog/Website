@@ -1,7 +1,6 @@
-# Info3dblog Website
+﻿# Info3dblog Website
 
 -   [x] Squelette
-
 -   [ ] Gestion des posts sans interface
 -   [ ] Gestion des catégories de posts ( __Exemple :__ Catégorie Python, Impression 3D, Robotique)
 -   [ ] Système de compte avec Email et Passwd & Inscription à une Newsletter)
