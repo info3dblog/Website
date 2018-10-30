@@ -119,3 +119,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# MarkupField settings
+import markdown
+
+MARKUP_FIELD_TYPES = (
+    ('markdown', markdown.markdown),
+)
