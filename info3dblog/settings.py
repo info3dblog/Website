@@ -122,10 +122,6 @@ STATIC_URL = '/static/'
 
 # MarkupField settings
 import markdown
-from mdx_gfm import GithubFlavoredMarkdownExtension
-
-markdown_github_like = markdown.Markdown(extensions=[GithubFlavoredMarkdownExtension()])
-
 MARKUP_FIELD_TYPES = (
-    ('markdown', markdown_github_like.convert),
+    ('markdown', markdown.markdown),
 )
