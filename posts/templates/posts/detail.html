@@ -1,39 +1,22 @@
 <!DOCTYPE HTML>
+{% load static %}
+
 <html>
-
 <head>
-  <style>
-    body {
-      background-color: lightgrey;
-    }
-
-    #title {
-      text-align: center
-    }
-
-    #outerdiv {
-      background-color: white;
-      margin: auto;
-      width: 50%;
-    }
-
-    #innerdiv {
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-bottom: 50px;
-      padding-top: 25px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'posts/style.css' %}">
 </head>
 
 <body>
   <div id="outerdiv">
     <div id="innerdiv">
-      <h1 id="title">{{ post.title }}</h1>
+      <div class="center">
+        <strong class="title">{{ post.title }}</strong>
+        <span> ({{ post.category }})</span>
+      </div>
       <hr>
       {{ post.body }}
     </div>
   </div>
 </body>
-
 </html>

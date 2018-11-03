@@ -1,22 +1,26 @@
 from django.http import HttpResponse
-from .models import Post
+from .models import Post, Category
 from django.template import loader
 import markdown
 from django.shortcuts import get_object_or_404
 
 
 def home(request):
-    return HttpResponse(
-        """
-		<h1>Info3DBlog</h1>
-		""")
+    latest_posts_list = Post.objects.order_by('-id')[:5]
+    template = loader.get_template('posts/home.html')
+    context = {
+        'latest_posts_list': latest_posts_list,
+    }
+    return HttpResponse(template.render(context, request))
 
 
 def index(request):
-    latest_posts_list = Post.objects.order_by('-id')[:5]
+    posts_list = Post.objects.order_by('title')
+    categories_list = Category.objects.order_by('title')
     template = loader.get_template('posts/index.html')
     context = {
-        'latest_posts_list': latest_posts_list,
+        'posts_list': posts_list,
+        'categories_list': categories_list,
     }
     return HttpResponse(template.render(context, request))
 

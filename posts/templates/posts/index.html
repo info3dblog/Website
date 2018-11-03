@@ -1,40 +1,31 @@
 <!DOCTYPE HTML>
+{% load static %}
+
 <html>
-
 <head>
-  <style>
-    body {
-      background-color: lightgrey;
-    }
-
-    #title {
-      text-align: center
-    }
-
-    #outerdiv {
-      background-color: white;
-      margin: auto;
-      width: 50%;
-    }
-
-    #innerdiv {
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-bottom: 50px;
-      padding-top: 25px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'posts/style.css' %}">
 </head>
 
 <body>
   <div id="outerdiv">
     <div id="innerdiv">
-      <h1 id="title">Post index</h1>
+      <h1 class="center">Post index</h1>
       <hr>
-      {% if latest_posts_list %}
+      {% if posts_list %}
+        <p>Liste de tous les posts par catégorie:</p>
         <ul>
-          {% for post in latest_posts_list %}
-            <li><a href="/posts/{{ post.id }}/">{{ post.title }}</a></li>
+          {% for category in categories_list %}
+            <li>
+              {{ category.title }}:
+              <ul>
+                {% for post in posts_list %}
+                  {% if post.category.title == category.title %}
+                    <li><a href="/posts/{{ post.id }}/">{{ post.title }}</a></li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </li>
           {% endfor %}
         </ul>
       {% else %}
