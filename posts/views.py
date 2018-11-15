@@ -1,7 +1,6 @@
 from django.http import HttpResponse
 from .models import Post, Category
 from django.template import loader
-import markdown
 from django.shortcuts import get_object_or_404
 
 
